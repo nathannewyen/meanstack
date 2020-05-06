@@ -12,10 +12,16 @@ function displayInfo() {
 	let house_name = document.getElementById('house_name');
 	let house_words = document.getElementById('house_words');
 	let house_title = document.getElementById('house_title');
+	let house_member = document.getElementById('house_members');
 
 	fetch(`https://anapioficeandfire.com/api/houses/${this.id}/`)
 		.then((response) => response.json())
-		.then(({ name, words, titles }) => {
+		.then(({
+			name,
+			words,
+			titles,
+			swornMembers
+		}) => {
 			house_name.textContent = `Name: ${name}`;
 			house_words.textContent = `Words: ${words}`;
 			house_title.textContent = `Words: ${titles}`;
