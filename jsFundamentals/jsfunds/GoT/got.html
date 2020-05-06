@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <title>Game of Thrones</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <style>
+        .container-fluid .card img {
+            width: 20vw;
+            height: 20vh;
+            padding: 10px;
+        }
+
+        .container {
+            margin-top: 40px;
+            padding: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container-fluid text-center">
+        <div class="card d-inline-block ">
+            <img class="card-img-bottom" src="/GoT/houseimgs/baratheon.png" alt="baratheon" id="17" class="house">
+        </div>
+        <div class="card d-inline-block ">
+            <img class="card-img-bottom" src="/GoT/houseimgs/lannister.jpg" alt="lannister" id="229" class="house">
+        </div>
+        <div class="card d-inline-block ">
+            <img class="card-img-bottom" src="/GoT/houseimgs/stark.jpg" alt="stark" id="362" class="house">
+        </div>
+        <div class="card d-inline-block ">
+            <img class="card-img-bottom" src="/GoT/houseimgs/targaryen.jpg" alt="targaryen" id="378" class="house">
+        </div>
+
+        <div class="container bg-light text-left" id="house_details">
+            <h3>House Details</h3>
+            <p id="house_name"> </p>
+            <p id="house_words"> </p>
+            <p id="house_title"> </p>
+        </div>
+    </div>
+
+    <script src="/GoT/got.js"></script>
+</body>
+
+</html>
