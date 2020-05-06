@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        $(document).ready(function () {
+
+            $('#button').click(function () {
+                $.get("https://api.github.com/users/nathannewyen", displayName)
+
+                function displayName(data) {
+                    $('#name').text('Name: ' + data.name)
+                    $('#loginid').text('Username: ' + data.login)
+                }
+            })
+        });
+    </script>
+
+    <div id="info">
+        <button id="button" type="submit" style="background-color: blue; color: white; width: 50px; height: 50px;">
+            Show Github Info
+        </button>
+        <div id="name"> </div>
+        <div id="loginid"> </div>
+    </div>
+</body>
+
+</html>
