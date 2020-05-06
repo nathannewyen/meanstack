@@ -4,7 +4,8 @@
         "Bertson",
         "Osmund",
         "Remy",
-        "loginid"
+        "loginid",
+        "nameid"
     ],
     "git.ignoreLimitWarning": true
 }

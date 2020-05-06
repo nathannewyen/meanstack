@@ -11,15 +11,29 @@
 <body>
     <script>
         $(document).ready(function () {
+            document.getElementById("button").addEventListener("click", displayName);
 
-            $('#button').click(function () {
-                $.get("https://api.github.com/users/nathannewyen", displayName)
+            function displayName() {
+                let nameid = document.getElementById("name")
+                let loginid = document.getElementById("loginid")
 
-                function displayName(data) {
-                    $('#name').text('Name: ' + data.name)
-                    $('#loginid').text('Username: ' + data.login)
-                }
-            })
+                fetch("https://api.github.com/users/nathannewyen")
+                    // .then(function(response) {
+                    // return response.json();
+                    // }) 
+
+                    //Another way to write function 
+                    .then(response => response.json())
+                    .then(({
+                        name,
+                        login
+                    }) => {
+                        nameid.innerText = `Name: ${name}`;
+                        loginid.innerText = `Username: ${login}`
+                    })
+            }
+
+
         });
     </script>
 
