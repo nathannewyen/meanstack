@@ -5,7 +5,7 @@ class Card {
         this.value = value;
     }
     showCardInfo() {
-        console.log(`Suit: ${this.suit}, Name: ${this.nameCard}, Value: ${this.value}`)
+        console.log(`Suit: ${this.suit}, Name: ${this.card}, Value: ${this.value}`)
     }
 }
 
