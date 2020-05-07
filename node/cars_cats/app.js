@@ -65,6 +65,14 @@ const server = http.createServer(function (request, response) {
             response.write(contents);
             response.end();
         });
+    } else if (request.url === '/css/style.css') {
+        fs.readFile('css/style.css', 'utf8', function (errors, contents) {
+            response.writeHead(200, {
+                'Content-type': 'text/css'
+            });
+            response.write(contents);
+            response.end();
+        })
     } else {
         response.writeHead(404);
         response.end('File not found!!!');
