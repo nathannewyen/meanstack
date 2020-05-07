@@ -17,7 +17,23 @@ const server = http.createServer(function (request, response) {
         });
     }
     // request didn't match anything:
-    else {
+    else if (request.url === "/ninja") {
+        fs.readFile('ninja.html', 'utf8', (errors, contents) => {
+            response.writeHead(200, {
+                'Content-type': 'text/html'
+            });
+            response.write(contents);
+            response.end();
+        });
+    } else if (request.url === "/dojo/new") {
+        fs.readFile('dojos.html', 'utf8', (errors, contents) => {
+            response.writeHead(200, {
+                'Content-type': 'text/html'
+            });
+            response.write(contents);
+            response.end();
+        });
+    } else {
         response.writeHead(404);
         response.end('File not found!!!');
     }
@@ -25,4 +41,4 @@ const server = http.createServer(function (request, response) {
 // tell your server which port to run on
 server.listen(6789);
 // print to terminal window
-console.log("Running in localhost at port 8000");
+console.log("Running in localhost at port 6789");
