@@ -5,7 +5,7 @@ class Card {
         this.value = value;
     }
     showCardInfo() {
-        console.log(`Suit: ${this.suit}, Name: ${this.card}, Value: ${this.value}`)
+        console.log(`Card displayed is a ${this.suit} of ${this.card}`)
     }
 }
 
@@ -63,6 +63,12 @@ class Player extends DeckOfCard {
         return this.hand
         // console.log(this.hand)
     }
+    flip() {
+        let temp = this.hand[0];
+        temp.showCardInfo()
+        return temp
+    }
+
     discard() {
         var temp, temp_num;
         temp_num = Math.floor(Math.random() * this.hand.length); // pick random card to discard
@@ -77,9 +83,11 @@ class Player extends DeckOfCard {
     }
 }
 
-
+let card = new Card('Spades', 'Ace', "a")
 let deck = new DeckOfCard()
 let nathan = new Player('Nathan')
+
+// card.showCardInfo()
 
 // console.log(deck.deck)
 // deck.reset()
@@ -88,5 +96,6 @@ let nathan = new Player('Nathan')
 nathan.showPlayerInfo()
 console.log(nathan.draw()) // draw an random card
 console.log(nathan.draw())
-console.log(nathan.draw())
+nathan.flip()
+// console.log(nathan.draw())
 console.log(nathan.discard()) // pick random card to discard
