@@ -51,7 +51,7 @@ class DeckOfCard {
 
 class Player extends DeckOfCard {
     constructor(name) {
-        super(name)
+        super()
         this.name = name;
         this.hand = [];
     }
@@ -60,6 +60,7 @@ class Player extends DeckOfCard {
     }
     draw() {
         this.hand.push(deck.deal()) // Draw an random card from deck
+        return this.hand
         // console.log(this.hand)
     }
     discard() {
@@ -72,6 +73,7 @@ class Player extends DeckOfCard {
         this.hand[this.hand.length - 1] = temp;
         this.hand.pop(); // Discard card in an array which is hand
         // console.log(this.hand)
+        return this.hand
     }
 }
 
@@ -84,6 +86,7 @@ let nathan = new Player('Nathan')
 // console.log(deck.deck)
 
 nathan.showPlayerInfo()
-nathan.draw()
-nathan.draw()
-nathan.discard()
+console.log(nathan.draw()) // draw an random card
+console.log(nathan.draw())
+console.log(nathan.draw())
+console.log(nathan.discard()) // pick random card to discard
