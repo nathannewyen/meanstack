@@ -1,0 +1,21 @@
+h1 {
+    background: lightgreen;
+    padding: 20px;
+}
+
+ul .food {
+    background-color: #CE93D9;
+}
+
+ul .age {
+    background-color: #9B29B0;
+}
+
+ul .spots {
+    background-color: pink;
+}
+
+ul li {
+    padding: 20px;
+    list-style: none;
+}
