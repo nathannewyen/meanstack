@@ -2,6 +2,18 @@ const express = require("express");
 const app = express();
 const session = require("express-session");
 
+app.use(
+    session({
+        secret: "keyboardkitteh",
+        resave: false,
+        saveUninitialized: true,
+        cookie: {
+            maxAge: 60000
+        },
+    })
+);
+
+
 app.use(express.static(__dirname + "/static"));
 app.use(express.urlencoded({
     extended: true
@@ -15,12 +27,18 @@ app.get('/', (req, res) => {
     res.render('index.ejs')
 });
 
-app.post('/result', (req, res) => {
+app.post('/process', (req, res) => {
+    req.session.name = req.body.name
+    req.session.location = req.body.location
+    req.session.fav_lang = req.body.fav_lang
+    req.session.comment = req.body.comment
+
+    res.redirect("result")
+})
+
+app.get('/result', (req, res) => {
     context = {
-        "name": req.body.name,
-        "location": req.body.location,
-        "fav_lang": req.body.fav_lang,
-        "comment": req.body.comment
+        result: req.session
     }
     res.render('result.ejs', context)
 })
