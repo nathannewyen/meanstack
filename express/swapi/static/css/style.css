@@ -1,0 +1,10 @@
+.container .clearfix {
+    width: 500px;
+    margin: 50px auto;
+}
+
+.container .info {
+    width: 500px;
+    margin: 0px auto;
+    padding: 20px;
+}
