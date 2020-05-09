@@ -25,12 +25,16 @@
         <p class="bg-danger">Please enter a number greater than 0</p>
         <% } else  if (input.num == context.randomNum) { %>
 
-        <p class="bg-success"> Congrats <%= input.num %> was a number </p>
+        <p class="bg-success">
+            Congrats <%= input.num %> was a number
+            <a href="/playagain">
+                <button class="btn btn-light">Play again!</button>
+            </a>
+        </p>
         <%  } %>
 
         <form action="/random" method="post">
-            <input class="form-control text-center" name="number" type="number"
-                placeholder="Your input number was <%= input.num %>" required>
+            <input class="form-control text-center" name="number" type="number" required>
 
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>

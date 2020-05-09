@@ -42,4 +42,9 @@ app.post("/random", (req, res) => {
     res.redirect("/");
 });
 
+app.get("/playagain", (req, res) => {
+    req.session.num = null;
+    res.redirect("/");
+})
+
 app.listen(8000, () => console.log("listening on port 8000"));
