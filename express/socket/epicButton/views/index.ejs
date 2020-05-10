@@ -1,0 +1,52 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <title>Sockets</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+</head>
+
+<body>
+    <div class="container text-center">
+        <h1>
+            The button has been pushed
+            <p id="numb_count"></p>
+            time(s)
+        </h1>
+        <p>Push the button to update the count!</p>
+        <button class="btn btn-primary" id="submit">Push the epic button</button>
+    </div>
+    <div class="container text-right reset">
+        <button class="btn btn-danger" id="reset">Reset</button>
+    </div>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var socket = io(); //1
+
+            $("#submit").click(function () {
+                socket.emit("count", {
+                    msg: "I want to count more!"
+                });
+            });
+
+            socket.on("send_count", function (data) {
+                $("#numb_count").html(`<h3>${data.counter}</h3>`);
+            });
+            $("#reset").click(function () {
+                socket.emit("reset_count", {
+                    msg: "I want to reset count!"
+                });
+            });
+
+            socket.on("send_reset_count", function (data) {
+                $("#numb_count").html(`<h3>${data.reset_counter}</h3>`);
+            });
+        });
+    </script>
+</body>
+
+</html>
