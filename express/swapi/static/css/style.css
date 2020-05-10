@@ -3,7 +3,8 @@
     margin: 50px auto;
 }
 
-.container .info {
+.container .info,
+#planet_info {
     width: 500px;
     margin: 0px auto;
     padding: 20px;
