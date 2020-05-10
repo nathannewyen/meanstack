@@ -1,0 +1,13 @@
+#survey {
+    margin-top: 50px;
+    padding: 30px;
+}
+
+textarea {
+    resize: none;
+}
+
+#msg {
+    background-color: lightgreen;
+    margin-top: 10px;
+}
