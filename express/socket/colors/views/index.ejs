@@ -1,0 +1,49 @@
+<html>
+
+<head>
+    <title>Sockets</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <input class="bg-light" type="submit" value="Blue" id="blue">
+        <input class="bg-light" type="submit" value="Green" id="green">
+        <input class="bg-light" type="submit" value="Pink" id="pink">
+    </div>
+
+
+    <script type="text/javascript">
+        var socket = io();
+        $("#green").click(function () {
+            socket.emit("green_push");
+        })
+        $("#blue").click(function () {
+            socket.emit("blue_push");
+        })
+        $("#pink").click(function () {
+            socket.emit("pink_push");
+        })
+        socket.on("launch", function (data) {
+            $("body").css("background-color", `${data.bgc}`);
+            console.log(data);
+            console.log(data.bgc);
+        })
+        socket.on("green_bg", function () {
+            $("body").css("background-color", "green");
+        })
+        socket.on("blue_bg", function () {
+            $("body").css("background-color", "blue");
+        })
+        socket.on("pink_bg", function () {
+            $("body").css("background-color", "pink");
+        })
+    </script>
+</body>
+
+</html>
