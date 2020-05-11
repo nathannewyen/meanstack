@@ -1,0 +1,21 @@
+.container-fluid {
+    margin-top: 20px;
+}
+
+textarea {
+    resize: none;
+}
+
+input {
+    margin-top: 20px;
+}
+
+button {
+    margin: 10px 0;
+}
+
+#chatbox {
+    width: 100vw;
+    height: 40vh;
+    background-color: white;
+}

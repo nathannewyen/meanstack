@@ -1,0 +1,66 @@
+<html>
+
+<head>
+    <title>Broadcast Example</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+
+
+    <div class="container-fluid bg-light">
+        <div class="form-group">
+            <label for="exampleFormControlTextarea1">
+                <h3> Conversation Broad</h3>
+            </label>
+            <div id="chatbox" class="border"></div>
+            <input type="text" class="form-control" id="msg" placeholder="Enter your message here">
+            <div class="btn-group-sm text-right">
+                <button class="btn btn-primary" id="btn">Send</button>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <!-- Javascript -->
+    <script type="text/javascript">
+        $(document).ready(function () {
+            let name = window.prompt("Your Name: ");
+            var socket = io();
+            var elem = document.getElementById('chatbox');
+
+
+            socket.emit("new_user", {
+                name: name
+            });
+            $("#btn").click(function () {
+                socket.emit("new_message", {
+                    name: name,
+                    message: $('#msg').val()
+                });
+                $('#msg').val("");
+            });
+            socket.on('existing_messages', function (data) {
+                for (i in data)
+                    $("#chatbox").append("<p>" + data[i].name + ": " + data[i].message + "</p>");
+                elem.scrollTop = elem.scrollHeight;
+            });
+
+            socket.on('update_messages', function (data) {
+                $("#chatbox").append("<p>" + data.name + ": " + data.message + "</p>");
+                elem.scrollTop = elem.scrollHeight;
+            });
+
+        })
+    </script>
+</body>
+
+</html>

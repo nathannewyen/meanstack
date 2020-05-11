@@ -18,7 +18,7 @@
 // function insertionSort(array) {
 // 	for (let i = 0; i < array.length; i++) {
 // 		let j = i - 1;
-// 		let temp = array[i];
+// 		let temp = array[i];	
 // 		while (j >= 0 && array[j] > temp) {
 // 			array[j + 1] = array[j];
 // 			j = j - 1;
@@ -70,21 +70,21 @@
 // Third: partition a subset, given start and end.
 // Exclude end; default values are 0 and arr.length.
 
-function partition(arr) {
-	for (var i = 0; i < arr.length; i++) {
-		pivot = arr[arr.length - 1]
-		if (arr[i] > pivot) {
-			temp = arr[arr.length - i] // temp = -2
-			arr[arr.length - i] = pivot // -> arr[arr.length - i] = 3
-			arr[arr.length - 1] = temp // -> 2
-			arr[i] = temp // -> arr[i] = 5 
-		}
-		console.log(arr)
-	}
-	// return arr
-}
+// function partition(arr) {
+// 	for (var i = 0; i < arr.length; i++) {
+// 		pivot = arr[arr.length - 1]
+// 		if (arr[i] > pivot) {
+// 			temp = arr[arr.length - i] // temp = -2
+// 			arr[arr.length - i] = pivot // -> arr[arr.length - i] = 3
+// 			arr[arr.length - 1] = temp // -> 2
+// 			arr[i] = temp // -> arr[i] = 5 
+// 		}
+// 		console.log(arr)
+// 	}
+// 	// return arr
+// }
 
-console.log(partition([1, 2, 5, 4, -1, -2, 3]))
+// console.log(partition([1, 2, 5, 4, -1, -2, 3]))
 
 
 // Array: Quick Sort
@@ -92,3 +92,33 @@ console.log(partition([1, 2, 5, 4, -1, -2, 3]))
 // partitionArray() to sort an array in-place.
 // With yesterday’s code plus a very few new lines,
 // you will implement QuickSort!
+
+//TODO Working on answer
+
+
+function stringToArray(inputStr) {
+	arr = [];
+	word = "";
+	for (var i = 0; i < inputStr.length; i++) {
+		word += inputStr.charAt(i)
+		if (inputStr.charAt(i + 1) == " ") {
+			arr.push(word)
+			word = ""
+		}
+	}
+	arr.push(word)
+	return arr
+}
+
+console.log(stringToArray("Life is not a drill!"))
+
+
+function reverseWordOrder(str) {
+	var newStr = "";
+	var arr = stringToArray(str)
+	for (var j = arr.length - 1; j >= 0; j--) {
+		newStr += arr[j] + " ";
+	}
+	return newStr;
+}
+console.log(reverseWordOrder("This is a test"))
