@@ -1,6 +1,6 @@
-use my_first_db
+// use my_first_db
 
-show collections
+// show collections
 
 // Create 5 students with the appropriate info.
 db.students.insert({

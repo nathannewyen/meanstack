@@ -17,7 +17,7 @@ const UserSchema = new mongoose.Schema({
     },
     created_at: {
         type: Date,
-        default: Date.now
+        default: Date.now()
     }
 })
 // Create an object that contains methods for mongoose to interface with MongoDB
