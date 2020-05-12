@@ -55,6 +55,7 @@ app.get("/quotes", (req, res) => {
   User.find({}, (err, quotes) => {
     var context = {
       quotes: quotes,
+      moment: moment
     };
 
     if (err) {

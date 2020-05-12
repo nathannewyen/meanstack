@@ -18,7 +18,8 @@
         <div class="quote clearfix">
             <% for (var user in quotes) { %>
             <p class="quote"><b> "<%= quotes[user].quote %>"</b></p>
-            <p class="date"> - "<%= quotes[user].name %>" at <%= quotes[user].created_at %></p>
+            <p class="date"> - "<%= quotes[user].name %>" at
+                <%= moment(quotes[user].created_at).format("hh:mm a, MMMM DD YYYY") %></p>
             <hr>
             <% } %>
             <div class="row">
