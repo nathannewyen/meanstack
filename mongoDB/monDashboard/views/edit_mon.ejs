@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/style.css">
+    <% for (var info in data) { %>
+    <title><%= data[info].name %> Edit</title>
+    <% } %>
+</head>
+
+<body>
+
+    <body>
+        <div class="container">
+            <% for (var info in data) { %>
+            <form action="/mongooses/<%= data[info].id %>" method="post">
+                <div class="form-group row">
+                    <label for="name" class="col-sm-2 col-form-label">Name:</label>
+                    <div class="col-sm-10">
+                        <input type="text" name="name" class="form-control" id="name"
+                            placeholder="<%= data[info].name %>">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="age" class="col-sm-2 col-form-label">Age:</label>
+                    <div class="col-sm-10">
+                        <input type="number" name="age" class="form-control" id="age"
+                            placeholder="<%= data[info].age %>">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-10 offset-sm-2">
+                        <button type="submit" class="btn btn-success">Edit</button>
+                    </div>
+                </div>
+            </form>
+            <% } %>
+        </div>
+    </body>
+
+</html>

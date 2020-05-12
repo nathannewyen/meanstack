@@ -18,7 +18,7 @@
 // function insertionSort(array) {
 // 	for (let i = 0; i < array.length; i++) {
 // 		let j = i - 1;
-// 		let temp = array[i];	
+// 		let temp = array[i];
 // 		while (j >= 0 && array[j] > temp) {
 // 			array[j + 1] = array[j];
 // 			j = j - 1;
@@ -61,7 +61,6 @@
 // const array = [9, 2, 5, 6, 4, 3, 7, 10, 1, 8];
 // console.log(mergeSort(array.slice())); // [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
-
 // Array: Partition
 // Partition unsorted array in-place. Use arr[0] as
 // pivot val; return idx of pivot. Input [5,4,9,2,5,3]
@@ -77,7 +76,7 @@
 // 			temp = arr[arr.length - i] // temp = -2
 // 			arr[arr.length - i] = pivot // -> arr[arr.length - i] = 3
 // 			arr[arr.length - 1] = temp // -> 2
-// 			arr[i] = temp // -> arr[i] = 5 
+// 			arr[i] = temp // -> arr[i] = 5
 // 		}
 // 		console.log(arr)
 // 	}
@@ -85,7 +84,6 @@
 // }
 
 // console.log(partition([1, 2, 5, 4, -1, -2, 3]))
-
 
 // Array: Quick Sort
 // Create a function that uses
@@ -95,30 +93,28 @@
 
 //TODO Working on answer
 
-
 function stringToArray(inputStr) {
 	arr = [];
-	word = "";
+	word = '';
 	for (var i = 0; i < inputStr.length; i++) {
-		word += inputStr.charAt(i)
-		if (inputStr.charAt(i + 1) == " ") {
-			arr.push(word)
-			word = ""
+		word += inputStr.charAt(i);
+		if (inputStr.charAt(i + 1) == ' ') {
+			arr.push(word);
+			word = '';
 		}
 	}
-	arr.push(word)
-	return arr
+	arr.push(word);
+	return arr;
 }
 
-console.log(stringToArray("Life is not a drill!"))
-
+console.log(stringToArray('Life is not a drill!'));
 
 function reverseWordOrder(str) {
-	var newStr = "";
-	var arr = stringToArray(str)
+	var newStr = '';
+	var arr = stringToArray(str);
 	for (var j = arr.length - 1; j >= 0; j--) {
-		newStr += arr[j] + " ";
+		newStr += arr[j] + ' ';
 	}
 	return newStr;
 }
-console.log(reverseWordOrder("This is a test"))
+console.log(reverseWordOrder('This is a test'));
