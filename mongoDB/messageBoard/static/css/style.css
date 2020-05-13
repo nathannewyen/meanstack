@@ -12,9 +12,6 @@ textarea {
     width: 50vw;
 }
 
-#message-form {
-    padding: 20px;
-}
 
 #post-message {
     margin-top: 10px;
@@ -26,6 +23,7 @@ textarea {
 }
 
 .comment-info {
+    width: 50vw;
     padding: 20px;
 }
 

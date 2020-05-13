@@ -13,14 +13,22 @@ const CommentSchema = new mongoose.Schema({
     comment: String,
     created_at: {
         type: Date,
-        default: Date.now()
+        default: moment()
     },
+}, {
+    timestamps: true
 })
 
 const MessageSchema = new mongoose.Schema({
     name: String,
     message: String,
+    created_at: {
+        type: Date,
+        default: moment()
+    },
     comments: [CommentSchema]
+}, {
+    timestamps: true
 })
 
 

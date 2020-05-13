@@ -118,3 +118,58 @@ function reverseWordOrder(str) {
 	return newStr;
 }
 console.log(reverseWordOrder('This is a test'));
+
+
+var str1 = "Hello world, i am here; right?";
+
+//: For the bonus...
+function revWordOrder(str) {
+	var newArr = [];
+	var endingPunctuation = "";
+	//: Split string into words
+	var wordArr = str.split(" ");
+	//: Iterate through array backwards
+	for (var i = wordArr.length - 1; i >= 0; i--) {
+		var word = "";
+		//: Split every word into characters
+		var charArr = wordArr[i].split("");
+		//: Iterate through characters
+		for (var idx = 0; idx < charArr.length; idx++) {
+			if (i === wordArr.length - 1 && idx === 0) {
+				charArr[idx] = charArr[idx].toUpperCase();
+			}
+			if (i === 0 && idx === 0) {
+				charArr[idx] = charArr[idx].toLowerCase();
+			}
+			if (charArr[idx] === "," || charArr[idx] === ";" || charArr[idx] === "'" || charArr[idx] === ":" || charArr[idx] === '"') {
+				newArr[(wordArr.length - 1) - (i + 1)] = newArr[(wordArr.length - 1) - (i + 1)] + charArr[idx];
+				continue;
+			}
+			if (charArr[idx] === "." || charArr[idx] === "!" || charArr[idx] === "?") {
+				endingPunctuation = charArr[idx];
+				continue;
+			}
+			word += charArr[idx];
+		}
+		newArr.push(word);
+	}
+	newArr[newArr.length - 1] = newArr[newArr.length - 1] + endingPunctuation;
+	return newArr.join(" ");
+}
+console.log(revWordOrder(str1));
+
+
+// String: Rotate String
+var string = "Boris Godunov"
+var substring = "5"
+string.indexOf(substring) !== -1
+
+function isRotated(str1, str2) {
+	if (str1.length !== str2.length) {
+		return false;
+	}
+	var str1Twisted = str1 + str1;
+	return str1Twisted.indexOf(str2) !== -1
+}
+
+console.log(isRotated(string, substring))
