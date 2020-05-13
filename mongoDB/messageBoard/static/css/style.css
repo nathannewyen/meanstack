@@ -1,0 +1,34 @@
+.container-fluid {
+    margin-top: 20px;
+    padding: 40px;
+}
+
+textarea {
+    resize: none;
+}
+
+#message-form,
+#message-info {
+    width: 50vw;
+}
+
+#message-form {
+    padding: 20px;
+}
+
+#post-message {
+    margin-top: 10px;
+}
+
+#message-info {
+    padding: 20px;
+    margin-top: 10px;
+}
+
+.comment-info {
+    padding: 20px;
+}
+
+#comment-form {
+    margin-top: 50px;
+}
