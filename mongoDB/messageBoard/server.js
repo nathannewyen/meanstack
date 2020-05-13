@@ -61,7 +61,7 @@ app.get("/", (req, res) => {
             });
         })
         .catch(err => {
-            console.log('Error saving user:', err)
+            console.log('Error find message:', err)
         })
 });
 
@@ -99,29 +99,6 @@ app.post('/:id/postcomment', (req, res) => {
             });
         });
 })
-
-
-app.get("/remove", (req, res) => {
-    Message.remove({}, err => {
-        if (err) {
-            console.log(err);
-            res.send(err);
-        } else {
-            res.redirect('/')
-        }
-    })
-})
-
-app.get('/show', (req, res) => {
-    Message.find()
-        .then(data => {
-            res.json(data)
-        })
-        .catch(err => {
-            res.json(err)
-        })
-})
-
 app.listen(8000, () => {
     console.log("Started server on port 8000");
 });

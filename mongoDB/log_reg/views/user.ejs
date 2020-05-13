@@ -12,12 +12,19 @@
 </head>
 
 <body class="bg-dark">
+    <nav class="navbar navbar-light bg-light">
+        <a class="navbar-brand" href="/dashboard">Navbar</a>
+        <a href="/logout">Logout</a>
+    </nav>
     <div class="container user-info bg-light">
-        <h4>Nathan Nguyen</h4>
-        <h5>Email: nathan.newyen@gmail.com</h5>
-        <h5>Age: 20</h5>
-        <h5>Birthday: 31/12/2000</h5>
+        <% user_data.forEach(user=>{ %>
+        <h4> <%= user.first_name %> <%= user.last_name %> </h4>
+        <h5>Email: <%= user.email  %> </h5>
+        <!-- <h5>Age: 20</h5> -->
+        <h5>Birthday: <%= moment(user.birthday).format('LL') %> </h5>
         <button class="btn btn-primary">Edit</button>
+        <p><%= user.currentUser  %> </p>
+        <% }) %>
 
     </div>
 </body>
