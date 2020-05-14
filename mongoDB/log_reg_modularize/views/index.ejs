@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.12.1/css/all.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+
+    <!-- Include Date Range Picker -->
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css" />
+    <title>User Dashboard</title>
+</head>
+
+<body class="bg-dark">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h3 class="text-light">Registration</h3>
+                <form action="/reg_process" method="post" id="login-form" class="bg-light">
+                    <div class="form-group">
+                        <label for="fname">First Name:</label>
+                        <input type="text" name="fname" class="form-control" id="fname">
+                    </div>
+                    <div class="form-group">
+                        <label for="lname">Last Name:</label>
+                        <input type="text" name="lname" class="form-control" id="lname">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" name="reg_email" class="form-control" id="email">
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label" for="date">Date</label>
+                        <input class="form-control" id="date" name="date" placeholder="MM/DD/YYYY" type="text" />
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password:</label>
+                        <input type="password" name="reg_password" class="form-control" id="password">
+                    </div>
+                    <div class="form-group">
+                        <label for="confirm-password">Confirm Password:</label>
+                        <input type="password" name="reg_confirm_password" class="form-control" id="confirm-password">
+                    </div>
+                    <div class="form-group clearfix">
+                        <button class="btn btn-primary float-right">Register</button>
+                    </div>
+                </form>
+            </div>
+            <div class="col">
+                <h3 class="text-light">Login</h3>
+                <form action="/login_process" method="post" id="login-form" class="bg-light">
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" name="login_email" class="form-control" id="email" placeholder="">
+
+                    </div>
+                    <div class="form-group">
+                        <label for="login_password">Password:</label>
+                        <input type="password" class="form-control" name="login_password" id="login_password">
+                    </div>
+                    <div class="form-group clearfix">
+                        <button class="btn btn-primary float-right">Login</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script>
+        $(document).ready(function () {
+            var date_input = $('input[name="date"]'); //our date input has the name "date"
+            var container = $('.bootstrap-iso form').length > 0 ? $('.bootstrap-iso form').parent() : "body";
+            var options = {
+                format: 'mm/dd/yyyy',
+                container: container,
+                todayHighlight: true,
+                autoclose: true,
+            };
+            date_input.datepicker(options);
+        })
+    </script>
+</body>
+
+</html>
