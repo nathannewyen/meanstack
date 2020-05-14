@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.12.1/css/all.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>User Dashboard</title>
+</head>
+
+<body class="bg-dark">
+    <nav class="navbar navbar-light bg-light">
+        <a class="navbar-brand" href="/">Navbar</a>
+    </nav>
+
+    <div class="container">
+        <table class="table bg-light">
+            <thead class="thead-light">
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+                    <th>Birthday</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% users.forEach(user=>{ %>
+                <tr>
+                    <td> <%= user.first_name %></td>
+                    <td><%= user.last_name %> </td>
+                    <td> <%= user.email %> </td>
+                    <td> <%= moment(user.birthday).format('LL') %> </td>
+                    <td>
+                        <a href="/user/<%= user.first_name %> ">View</a>
+                        <a href="/remove/<%= user.first_name %> " class="text-danger">Delete</a>
+                    </td>
+                </tr>
+                <% }) %>
+            </tbody>
+        </table>
+    </div>
+
+</body>
+
+</html>
