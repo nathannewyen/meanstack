@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Survey Form</title>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="container bg-light">
+            <form action="/process" method="post">
+                <div class="form-group row">
+                    <label for="name" class="col-sm-2 col-form-label">Your Name:</label>
+                    <div class="col-sm-10">
+                        <input type="text" name="name" class="form-control" id="name">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="location" class="col-sm-2 col-form-label">Dojo Location:</label>
+                    <div class="col-sm-10">
+                        <select class="custom-select" name="location">
+                            <option selected="Silicon Valley">Silicon Valley</option>
+                            <option value="Dallas">Dallas</option>
+                            <option value="Washington DC">Washington DC</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="languages" class="col-sm-2 col-form-label">Favorite languages:</label>
+                    <div class="col-sm-10">
+                        <select class="custom-select" name="fav_lang">
+                            <option selected="Javascript">Javascript</option>
+                            <option value="Python">Python</option>
+                            <option value="C#">C#</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="comment">Comment (optional):</label>
+                    <textarea name="comment" class="form-control disable-resize" id="comment" rows="5"></textarea>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-10 offset-sm-2 text-right">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</body>
+
+</html>

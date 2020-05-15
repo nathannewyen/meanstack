@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <title>Document</title>
+    <style>
+        .container-fluid {
+            padding: 50px;
+        }
+
+        .container {
+            padding: 50px;
+        }
+
+        .container .choice {
+            font-size: 18px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container-fluid row">
+        <div class="col question">
+            <h5>Question</h5>
+            <h2 class="text-primary">0/5</h2>
+        </div>
+        <div class="col score text-right">
+            <h5>Score</h5>
+            <h2 class="text-primary">0</h2>
+        </div>
+    </div>
+    <div class="container bg-light">
+        <!-- Geography -->
+        <h1 class="display-3" id="questions"> Geography question? </h1>
+        <div class="info-question" id="geography">
+
+        </div>
+        <!-- Science -->
+        <h1 class="display-3" id="questions"> Science Math question? </h1>
+        <div class="info-question" id="science">
+
+        </div>
+
+
+        <h1 class="display-3" id="questions"> Celebrities question? </h1>
+        <div class="info-question" id="celeb">
+
+        </div>
+    </div>
+
+    <script src="/trivia/trivia.js"></script>
+</body>
+
+</html>

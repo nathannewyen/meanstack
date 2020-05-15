@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <title>A Web Page</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-light bg-light">
+        <a class="navbar-brand" href="/">The Dojo Message Board</a>
+    </nav>
+
+    <div class="container-fluid">
+        <!-- Message Form -->
+        <form action="/postmessage" method="post" id="message-form">
+            <div class="form-inline">
+                <label class="sr-only" for="inlineFormInputName2">Name</label>
+                <input type="text" name="name" class="form-control mb-2 mr-sm-2" id="name"
+                    placeholder="Enter your name" />
+            </div>
+            <div class="form-group clearfix">
+                <label for="message">Message:</label>
+                <textarea class="form-control z-depth-1 shadow" name="message" id="message" rows="5"></textarea>
+                <button class="btn btn-primary float-right" id="post-message">
+                    Post message
+                </button>
+            </div>
+        </form>
+        <!-- End of message form -->
+
+        <!-- Message Info -->
+        <div id="message-info" class="bg-light">
+            <% messages.forEach(message=>{ %>
+            <h4>Name: <%= message.name %></h4>
+            <h6>
+                Message: <%= message.message %>
+                <span class="float-right"> <%= moment(message.created_at).fromNow() %></span>
+            </h6>
+        </div>
+        <div class="comment-info bg-light">
+            <% message.comments.forEach(comment=>{ %>
+            <p>Name: <%= comment.name %></p>
+            <p>
+                Comment: <%= comment.comment %>
+                <span class="float-right"> <%= moment(comment.created_at).fromNow() %></span>
+            </p>
+            <% });%>
+
+            <!-- Comment Form -->
+            <form action="/<%= message.id %>/postcomment" method="post" id="comment-form">
+                <div class="form-inline">
+                    <label class="sr-only" for="inlineFormInputName2">Name</label>
+                    <input type="text" name="name" class="form-control mb-2 mr-sm-2" id="name"
+                        placeholder="Enter your name" />
+                </div>
+                <div class="form-group clearfix">
+                    <label for="message">Comment:</label>
+                    <textarea class="form-control z-depth-1 shadow" name="comment" id="message" rows="3"></textarea>
+                    <button class="btn btn-primary float-right" id="post-message">
+                        Post comment
+                    </button>
+                </div>
+            </form>
+            <% });%>
+        </div>
+        <!-- Comment Form -->
+    </div>
+</body>
+
+</html>
