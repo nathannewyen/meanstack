@@ -10,17 +10,18 @@ export class HttpService {
   }
 
   getTasks() {
-    // our http response is an Observable, store it in a variable
-    let tempObservable = this._http.get("/tasks");
-    // subscribe to the Observable and provide the code we would like to do with our data from the response
-    tempObservable.subscribe((data) => console.log("Got our tasks!", data));
+    return this._http.get("/tasks");
   }
 
-  getOneTask(first_name: string) {
-    return this._http.get("/tasks/:first_name");
+  getTasksById(id: string) {
+    return this._http.get("/tasks/:id");
   }
 
-  addOneTask(first_name: string, newuser) {
-    return this._http.post("/tasks/:first_name", newuser);
+  addTask(newtask) {
+    return this._http.post("/tasks", newtask);
+  }
+
+  deleteTask(task) {
+    return this._http.delete(`/tasks/${task._id}`, task);
   }
 }

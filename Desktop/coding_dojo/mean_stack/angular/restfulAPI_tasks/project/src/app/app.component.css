@@ -1,0 +1,13 @@
+.container-fluid {
+  padding: 40px;
+}
+
+
+table {
+  width: 70%;
+}
+
+
+table td button {
+  margin: 0px 10px;
+}

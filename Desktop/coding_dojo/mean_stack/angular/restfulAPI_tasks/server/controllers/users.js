@@ -9,8 +9,8 @@
               .then(data => {
                   res.json({
                       message: "Success!",
+                      data
                   })
-                  console.log(data)
               })
               .catch(err => {
                   res.json({
@@ -20,40 +20,53 @@
               })
       },
 
-      add_user: (req, res) => {
-          const user = new User();
-          user.first_name = req.params.first_name;
-          user
-              .save()
-              .then((newUser) => {
+      create: function (req, res) {
+          User.create({
+              first_name: req.body.first_name,
+              last_name: req.body.last_name
+          }, function (err, task) {
+              if (err) {
+                  res.json({
+                      message: "Error!",
+                      error: err
+                  });
+              } else {
                   res.json({
                       message: "Success!",
-                  })
-                  console.log(newUser)
-              })
-              .catch((err) => {
-                  res.json({
-                      message: "Error!",
-                      err
+                      added: true
                   });
-              });
+              }
+          })
       },
 
+
       user_info: (req, res) => {
-          User.findOne({
-                  first_name: req.params.first_name
+          User.find({
+                  _id: req.params.id,
               })
-              .then(data = data => {
-                  res.json({
-                      message: "Success find user!",
-                  })
-                  console.log(data)
+              .then(user_data => {
+                  res.json(user_data)
               })
               .catch(err => {
+                  res.json(err)
+              })
+      },
+
+      delete: (req, res) => {
+          User.remove({
+              _id: req.params.id
+          }, err => {
+              if (err) {
                   res.json({
                       message: "Error!",
-                      err
-                  })
-              })
+                      error: err
+                  });
+              } else {
+                  res.json({
+                      message: "Delete Success!",
+                      added: true
+                  });
+              }
+          })
       }
   }
