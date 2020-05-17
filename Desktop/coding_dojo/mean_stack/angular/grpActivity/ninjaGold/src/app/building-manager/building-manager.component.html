@@ -1,0 +1,44 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+  integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+<div class="container">
+  <!-- Card -->
+  <div class="card-deck">
+    <!-- Farm -->
+    <div class="card" id="farm">
+      <div class="card-body">
+        <h4 class="card-title">Farm</h4>
+        <p class="card-text">Earn 2 - 5 golds</p>
+        <button class="btn btn-primary" (click)="buildingClicked(2,5)">Earn</button>
+      </div>
+    </div>
+
+    <!-- Cave -->
+    <div class="card" id="cave">
+      <div class="card-body">
+        <h4 class="card-title">Cave</h4>
+        <p class="card-text">Earn 5 - 10 golds </p>
+        <button class="btn btn-primary" (click)="buildingClicked(5,10)">Earn</button>
+      </div>
+    </div>
+
+    <!-- House -->
+    <div class="card" id="house">
+      <div class="card-body">
+        <h4 class="card-title">House</h4>
+        <p class="card-text">Earn 7 - 15 golds </p>
+        <button class="btn btn-primary" (click)="buildingClicked(7,15)">Earn</button>
+      </div>
+    </div>
+
+    <!-- Casino -->
+    <div class="card" id="casino">
+      <div class="card-body">
+        <h4 class="card-title">Casino</h4>
+        <p class="card-text">Win or Lose 100 golds </p>
+        <button class="btn btn-primary" (click)="buildingClicked(-100,100)">Earn</button>
+      </div>
+    </div>
+  </div>
+  <!-- End of Card -->
+</div>

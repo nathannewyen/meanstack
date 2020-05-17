@@ -1,0 +1,4 @@
+ul {
+  overflow: scroll;
+  max-height: 100px;
+}

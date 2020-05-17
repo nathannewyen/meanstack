@@ -1,0 +1,5 @@
+<app-score [score]="score"></app-score>
+<app-building-manager [score]="score" (changedGold)="goldChanged($event)"></app-building-manager>
+<app-history></app-history>
+
+<router-outlet></router-outlet>
