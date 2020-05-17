@@ -9,11 +9,13 @@ import { HistoryComponent } from "./history/history.component";
 export class AppComponent {
   title: "ninjaGold";
   score: number;
+  earngold: number;
   @ViewChild(HistoryComponent, null)
   private _historyComponent: HistoryComponent;
 
   ngOnInit() {
     this.score = 0;
+    this.earngold = 0;
   }
 
   goldChanged(newScore: number): void {

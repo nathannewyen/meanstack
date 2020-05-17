@@ -41,4 +41,10 @@
     </div>
   </div>
   <!-- End of Card -->
+
+  <div class="border">
+    <p *ngIf="earngold > 0">You earn {{earngold}} golds</p>
+    <p *ngIf="earngold < 0">You lost {{earngold}} golds</p>
+  </div>
+
 </div>

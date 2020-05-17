@@ -7,6 +7,7 @@ import { Component, OnInit, Input } from "@angular/core";
 })
 export class ScoreComponent implements OnInit {
   @Input() score: number;
+  @Input() earngold: number;
   constructor() {}
 
   ngOnInit() {}

@@ -7,13 +7,16 @@ import { Component, OnInit } from "@angular/core";
 })
 export class HistoryComponent implements OnInit {
   history: Array<string>;
+  historyEarn: Array<string>;
   constructor() {}
 
   ngOnInit() {
     this.history = [];
+    this.historyEarn = [];
   }
 
   addHistory(action: string) {
     this.history.push(action);
+    this.historyEarn.push(action);
   }
 }

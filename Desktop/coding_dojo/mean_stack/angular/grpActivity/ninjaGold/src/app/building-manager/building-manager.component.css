@@ -5,3 +5,12 @@
 .container .card {
   width: 20%;
 }
+
+div {
+  margin-top: 10px;
+  padding: 5px;
+}
+
+ul li {
+  list-style: none;
+}
