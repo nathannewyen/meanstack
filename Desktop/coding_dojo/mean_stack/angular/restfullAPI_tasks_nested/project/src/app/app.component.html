@@ -1,0 +1,39 @@
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
+
+
+  <div class="container">
+    <h1>{{ title }}</h1>
+    <button class="btn btn-primary" (click)="getAllUsersWithClick()">
+      Click to get all tasks
+    </button>
+
+    <div *ngIf="info" class="showUser">
+      <table class="table">
+        <thead class="thead-light">
+          <tr>
+            <th>#</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of users">
+            <th scope="row">{{ user._id }}</th>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- User Info -->
+      <input (keyup)="onKey($event)" />
+      <input type="submit" value="Click to get one task" (click)="getOneUserWithClick()" />
+      <ul>
+        <div *ngFor="let task of oneUser">
+          <li>
+            <h2>{{ task.first_name }}</h2>
+          </li>
+        </div>
+      </ul>
+    </div>
+  </div>
+
+
+  <app-water></app-water>

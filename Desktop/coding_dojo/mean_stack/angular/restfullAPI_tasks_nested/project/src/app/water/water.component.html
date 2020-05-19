@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="water">
+    <h4>Drink Water</h4>
+    <button class="btn btn-primary" (click)="getWaterWithClick()">
+      Show
+    </button>
+    <button class="btn btn-success" (click)="hideWaterWithClick()">
+      Hide
+    </button>
+
+
+  </div>
+
+  <div class="water-info" *ngIf="water_info">
+    <p>Stay Hydrated</p>
+  </div>
+</div>
