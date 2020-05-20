@@ -1,0 +1,16 @@
+<div *ngIf="city.name !== ''" class="container">
+  <div class="card">
+    <img class="card-img-top"
+      src="https://thumbnails.texastribune.org/QFWNIHadSMyZD0e4Brm7slwv9AM=/850x570/smart/filters:quality(75)/https://static.texastribune.org/media/files/8350a4b252a48880035024a6a565a9df/Dallas%20Skyline%20IS%20TT.jpg"
+      alt="Card image cap">
+    <div class="card-body text-light bg-dark">
+      <h4 class="card-title">{{ city.name }}</h4>
+      <p class="card-text"> Humidity : {{ city.main.humidity }} </p>
+      <p>Temperature (Average) : <span class="text-warning"> {{ city.main.temp }}°F </span></p>
+      <p>Temperature (High) : <span class="text-warning">{{ city.main.temp_max }}°F</span></p>
+      <p>Temperature (Low) : <span class="text-warning">{{ city.main.temp_min }}°F </span></p>
+      <p>Status : <span class="text-warning">{{ city.weather[0].description }}</span></p>
+      <a href="#!" class="btn btn-primary">Home</a>
+    </div>
+  </div>
+</div>
