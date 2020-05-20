@@ -1,8 +1,5 @@
 import { Component } from "@angular/core";
-
-import { HttpService } from "./http.service";
-
-import { ActivatedRoute, Params, Router } from "@angular/router";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-root",
@@ -11,14 +8,8 @@ import { ActivatedRoute, Params, Router } from "@angular/router";
 })
 export class AppComponent {
   title = "weather";
-  constructor(
-    private _httpService: HttpService,
-    private _route: ActivatedRoute,
-    private _router: Router
-  ) {}
-  ngOnInit() {
-    this._route.params.subscribe((params: Params) => console.log(params["id"]));
-  }
+  constructor(private _router: Router) {}
+  ngOnInit() {}
   goHome() {
     this._router.navigate(["/home"]);
   }
