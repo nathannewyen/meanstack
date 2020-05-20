@@ -1,0 +1,67 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+  integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+<div class="container-fluid">
+  <h3>Rate my cakes</h3>
+  <div class="row">
+    <!-- Add Cake -->
+    <div class="col">
+      <form class="border add-new-cake">
+        <p>Submit a cake to be rated</p>
+        <hr>
+        <div class="form-group">
+          <label for="name">Baker Name:</label>
+          <input type="text" name="name" [(ngModel)]="newCake.name" class="form-control" id="name">
+        </div>
+        <div class="form-group">
+          <label for="image-url">Image URL:</label>
+          <input type="url" name="url" [(ngModel)]="newCake.url" class="form-control" id="url" placeholder="https://">
+        </div>
+        <div class="form-group clearfix">
+          <button class="btn btn-primary float-right" (click)="onSubmit()">SUBMIT</button>
+        </div>
+      </form>
+    </div>
+    <!-- Rate cake -->
+    <div class="col">
+      <ul class="border">
+
+        <li *ngFor="let cake of cakes; let idx = index">
+          <img class="d-inline-block" (click)="getCake(idx)" src="{{cake.url}}" alt="{{cake.id}}" width="250"
+            height="250">
+          <form class="d-inline-block form-rate">
+            <div class="form-group">
+              <select name="rating" [(ngModel)]="newRating.rating" class="custom-select">
+                <option selected value="1">1 stars</option>
+                <option value="2">2 stars</option>
+                <option value="3">3 stars</option>
+                <option value="4">4 stars</option>
+                <option value="5">5 stars</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <textarea name="comment" [(ngModel)]="newRating.comment" class="form-control" id="rate-comment" rows="4"
+                placeholder="Type your comment here"></textarea>
+            </div>
+            <div class="form-group clearfix">
+              <button class="btn btn-primary float-right btn-sm" (click)="ratingSubmit(cake._id)">Rate!</button>
+            </div>
+
+          </form>
+
+        </li>
+
+      </ul>
+      <!-- End Rate Form -->
+
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<app-cake-info *ngIf="selectedCake" [cakesToShow]="selectedCake" [avgRating]="avg"></app-cake-info>
+
+<router-outlet></router-outlet>

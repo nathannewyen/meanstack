@@ -1,0 +1,21 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+  integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+<div class="container">
+
+  <h1>Baked by {{cakesToShow.name}}</h1>
+  <div class="info border">
+    <div class="image-show d-inline-block">
+      <img class="pic2" src="{{cakesToShow.url}}" width="250">
+    </div>
+    <div class="details-review d-inline-block">
+      <p>Average rating: <b> {{avgRating}} </b></p>
+      <div *ngFor="let review of cakesToShow.ratings">
+        <p class="text-warning"><b> {{review.rating}} stars </b></p>
+        <p><b> {{review.comment}} </b></p>
+      </div>
+
+    </div>
+  </div>
+
+</div>

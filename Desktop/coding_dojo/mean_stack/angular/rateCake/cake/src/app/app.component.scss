@@ -1,0 +1,29 @@
+.container-fluid {
+  padding: 30px;
+
+  ul {
+    list-style: none;
+    padding: 10px;
+    overflow: scroll;
+    max-height: 320px;
+  }
+
+  ul li {
+    padding: 5px;
+  }
+
+  .add-new-cake {
+    padding: 15px;
+    height: 320px;
+  }
+
+  .form-rate {
+    vertical-align: top;
+    width: 70%;
+    margin-left: 10px;
+  }
+
+  textarea {
+    resize: none;
+  }
+}
