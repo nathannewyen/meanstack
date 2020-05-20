@@ -38,11 +38,17 @@ export class AppComponent {
     });
   }
 
-  ratingSubmit(cakeId) {
-    let observable = this._httpService.addRating(this.newRating, cakeId);
-    observable.subscribe((data) => {});
-    this.newRating = { rating: "", comment: "" };
-    this.getCakesFromService();
+  ratingSubmit(cake) {
+    let observable = this._httpService.addRating(
+      { rating: cake.newRating, comment: cake.newComment },
+      cake._id
+    );
+    observable.subscribe((data) => {
+      // after successful submission of ratings do following.
+      cake.newRating = "";
+      cake.newComment = "";
+      this.getCakesFromService();
+    });
   }
 
   getCake(idx) {

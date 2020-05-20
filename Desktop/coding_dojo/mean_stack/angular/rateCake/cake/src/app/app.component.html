@@ -31,7 +31,7 @@
             height="250">
           <form class="d-inline-block form-rate">
             <div class="form-group">
-              <select name="rating" [(ngModel)]="newRating.rating" class="custom-select">
+              <select name="rating" [(ngModel)]="cake.newRating" class="custom-select">
                 <option selected value="1">1 stars</option>
                 <option value="2">2 stars</option>
                 <option value="3">3 stars</option>
@@ -40,11 +40,11 @@
               </select>
             </div>
             <div class="form-group">
-              <textarea name="comment" [(ngModel)]="newRating.comment" class="form-control" id="rate-comment" rows="4"
+              <textarea name="comment" [(ngModel)]="cake.newComment" class="form-control" id="rate-comment" rows="4"
                 placeholder="Type your comment here"></textarea>
             </div>
             <div class="form-group clearfix">
-              <button class="btn btn-primary float-right btn-sm" (click)="ratingSubmit(cake._id)">Rate!</button>
+              <button class="btn btn-primary float-right btn-sm" (click)="ratingSubmit(cake)">Rate!</button>
             </div>
 
           </form>
