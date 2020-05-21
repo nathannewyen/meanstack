@@ -1,11 +1,10 @@
   <a routerLink="/">Home</a>
-  <br />
   <p class="txt-blue">Edit this author:</p>
-  <form action="/edit/{{authorID}}" method="post" class="author-form clearfix">
+  <form action="/edit/{{authorID}}" method="post" class="clearfix border">
     <div class="form-group">
       <label for="name">Name</label>
       <input name="name" [(ngModel)]="name" type="text" id="name" class="form-control">
     </div>
-    <a routerLink="/" class="btn btn-secondary float-left">Cancel</a>
+    <a [routerLink]="['/home']"><button class="btn btn-danger" id="cancel">Cancel</button> </a>
     <button (click)="onEdit()" class="btn btn-primary float-right">Submit</button>
   </form>
