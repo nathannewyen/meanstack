@@ -1,0 +1,17 @@
+<a [routerLink]="['/home']"> Home </a>
+
+<b>
+  <p>Add a new Author:</p>
+</b>
+
+<form class="border">
+  <div class="form-group">
+    <label for="name">Name:</label>
+    <input type="text" name="name" [(ngModel)]="newAuthor.name" class="form-control" id="name"
+      placeholder="Enter your name">
+  </div>
+  <div class="form-group">
+    <button class="btn btn-danger" id="cancel">Cancel</button>
+    <button class="btn btn-primary" id="submit" (click)="onSubmit()">Submit</button>
+  </div>
+</form>
