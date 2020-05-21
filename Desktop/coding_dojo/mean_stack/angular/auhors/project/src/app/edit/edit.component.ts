@@ -34,6 +34,6 @@ export class EditComponent implements OnInit {
   onEdit() {
     let ob = this.httpService.editTask(this.authorID, { name: this.name });
     ob.subscribe((data) => {});
-    this.router.navigate(["/"]);
+    this.router.navigate(["home"]);
   }
 }

@@ -1,3 +1,5 @@
+var path = require("path");
+
 const authors = require('../controllers/authors.js')
 
 
@@ -12,4 +14,7 @@ module.exports = (app) => {
 
     app.delete("/delete/:id", authors.delete)
 
+    app.all("*", (req, res, next) => {
+        res.sendFile(path.resolve("./project/dist/project/index.html"))
+    });
 }
