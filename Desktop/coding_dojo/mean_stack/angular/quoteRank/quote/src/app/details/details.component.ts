@@ -35,7 +35,7 @@ export class DetailsComponent implements OnInit {
     const observable = this.httpService.voteUp(id, quoteid);
     observable.subscribe((data) => {
       this.getSingleAuthor();
-      this.router.navigate(["home"]);
+      this.router.navigate([`/quotes/${id}`]);
     });
   }
 
@@ -43,7 +43,7 @@ export class DetailsComponent implements OnInit {
     const observable = this.httpService.voteDown(id, quoteid);
     observable.subscribe((data) => {
       this.getSingleAuthor();
-      this.router.navigate(["home"]);
+      this.router.navigate([`/quotes/${id}`]);
     });
   }
 

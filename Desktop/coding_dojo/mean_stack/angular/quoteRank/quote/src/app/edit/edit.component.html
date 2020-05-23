@@ -1,12 +1,9 @@
-<div class="edit-form" *ngIf="authorData">
-  <b>
-
-  </b>
-
+<div class="edit-form" *ngIf="authorData.data">
   <form class="border">
     <div class="form-group">
       <label for="name">Name:</label>
-      <input type="text" name="name" [(ngModel)]="editAuthor.name" class="form-control" id="name" required>
+      <input type="text" name="name" [(ngModel)]="editAuthor.name" class="form-control" id="name"
+        placeholder="{{authorData.data.name}}">
       <div *ngIf=" error">
         <p class="text-danger">{{error}}</p>
       </div>
