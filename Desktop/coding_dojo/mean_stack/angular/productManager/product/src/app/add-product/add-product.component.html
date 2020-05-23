@@ -1,0 +1,24 @@
+<div class="container">
+  <form class="border edit-product">
+    <h4>Create a New Product</h4>
+    <div class="form-group">
+      <label for="name">Title Name:</label>
+      <input type="text" name="title" [(ngModel)]="newProduct.title" class="form-control" id="name">
+    </div>
+
+
+
+    <div class="form-group">
+      <label for="name">Price:</label>
+      <input type="number" name="price" [(ngModel)]="newProduct.price" class="form-control" id="name">
+    </div>
+    <div class="form-group">
+      <label for="image-url">Image URL:</label>
+      <input type="url" name="url" [(ngModel)]="newProduct.url" class="form-control" id="url" placeholder="https://">
+    </div>
+    <div class="form-group clearfix">
+      <button class="btn btn-danger float-right" (click)="onSubmit()">Create</button>
+      <button class="btn btn-primary float-right">Cancel</button>
+    </div>
+  </form>
+</div>

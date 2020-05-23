@@ -1,0 +1,13 @@
+<div class="container-fluid">
+  <div class="card-deck text-center d-inline-block" *ngFor="let product of products">
+    <div class="card">
+      <div class="card-body">
+        <img src="{{product.url}}" alt="{{product.title}}" width="300" height="300">
+        <h4>{{product.title}}</h4>
+        <h5>${{product.price}}</h5>
+        <button class="btn btn-primary" [routerLink]="['edit', product._id]">Edit</button>
+        <button class="btn btn-danger">Delete</button>
+      </div>
+    </div>
+  </div>
+</div>
