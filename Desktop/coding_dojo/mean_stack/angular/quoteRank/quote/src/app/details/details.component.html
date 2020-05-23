@@ -1,0 +1,28 @@
+      <div *ngIf="authorData" class="info">
+        <button class="btn btn-info btn-sm" [routerLink]="['/write', authorData.data._id]">Add Quote</button>
+        <p>Quote by {{authorData.data.name}}: </p>
+        <table class="table border">
+          <thead class="thead-light">
+            <tr>
+              <th>Quote</th>
+              <th>Votes</th>
+              <th>Action available</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let quote of authorData.data.author_quote">
+              <td>{{quote.quote}}</td>
+              <td>{{quote.vote}}</td>
+              <td>
+                <button class="btn btn-primary btn-sm" id="vote-up"
+                  (click)="voteUp(authorData.data._id, quote._id)">Vote
+                  up</button>
+                <button class="btn btn-warning btn-sm" id="vote-down"
+                  (click)="voteDown(authorData.data._id, quote._id)">Vote down</button>
+                <button class="btn btn-danger btn-sm" id="delete-quote"
+                  (click)="deleteQuote(authorData.data._id, quote._id)">Delete</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>

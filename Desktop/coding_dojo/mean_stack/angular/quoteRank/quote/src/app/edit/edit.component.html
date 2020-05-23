@@ -1,0 +1,19 @@
+<div class="edit-form" *ngIf="authorData">
+  <b>
+
+  </b>
+
+  <form class="border">
+    <div class="form-group">
+      <label for="name">Name:</label>
+      <input type="text" name="name" [(ngModel)]="editAuthor.name" class="form-control" id="name" required>
+      <div *ngIf=" error">
+        <p class="text-danger">{{error}}</p>
+      </div>
+    </div>
+    <div class="form-group">
+      <a [routerLink]="['/home']"><button class="btn btn-danger" id="cancel">Cancel</button> </a>
+      <button class="btn btn-primary" id="submit" (click)="onEdit()">Submit</button>
+    </div>
+  </form>
+</div>

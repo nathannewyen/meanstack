@@ -1,0 +1,18 @@
+<b>
+  <p>Add a new quotable Author:</p>
+</b>
+
+<form class="border">
+  <div class="form-group">
+    <label for="name">Name:</label>
+    <input type="text" name="name" [(ngModel)]="newAuthor.name" class="form-control" id="name"
+      placeholder="Enter your name">
+    <div *ngIf="error">
+      <p class="text-danger">{{error}}</p>
+    </div>
+  </div>
+  <div class="form-group">
+    <a [routerLink]="['/home']"><button class="btn btn-danger" id="cancel">Cancel</button> </a>
+    <button class="btn btn-primary" id="submit" (click)="onSubmit()">Submit</button>
+  </div>
+</form>
