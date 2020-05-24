@@ -32,7 +32,7 @@ export class AppComponent {
     let observable = this._httpService.createNote(this.newNote);
     observable.subscribe((data: any) => {
       if (data.error) {
-        this.error = data.error.errors.name.message;
+        this.error = data.error.errors.note.message;
       } else {
         this.getNotesFromService();
         this.router.navigate([""]);
