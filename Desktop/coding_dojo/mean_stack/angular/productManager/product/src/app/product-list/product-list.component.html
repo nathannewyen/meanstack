@@ -6,7 +6,7 @@
         <h4>{{product.title}}</h4>
         <h5>${{product.price}}</h5>
         <button class="btn btn-primary" [routerLink]="['edit', product._id]">Edit</button>
-        <button class="btn btn-danger">Delete</button>
+        <button class="btn btn-danger" (click)="onDelete(product._id)">Delete</button>
       </div>
     </div>
   </div>

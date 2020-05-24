@@ -9,6 +9,7 @@ import { Router, ActivatedRoute } from "@angular/router";
 })
 export class EditProductComponent implements OnInit {
   id = "";
+  productData: any;
   editProduct: any;
   error = "";
   constructor(
@@ -26,8 +27,7 @@ export class EditProductComponent implements OnInit {
   getOneProduct() {
     let observable = this._httpService.oneProduct(this.id);
     observable.subscribe((data) => {
-      this.editProduct = data;
-      console.log(data);
+      this.productData = data;
     });
   }
 
@@ -35,8 +35,7 @@ export class EditProductComponent implements OnInit {
     let observable = this._httpService.editProduct(this.id, this.editProduct);
     observable.subscribe((data) => {
       this.getOneProduct();
-      this.editProduct = data;
-      console.log(data);
+      this._router.navigate(["products"]);
     });
   }
 }

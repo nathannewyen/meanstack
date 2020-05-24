@@ -84,4 +84,23 @@
               }
           })
       },
+
+
+      deleteProduct: (req, res) => {
+          Product.remove({
+              _id: req.params.id
+          }, err => {
+              if (err) {
+                  res.json({
+                      message: "Error!",
+                      error: err
+                  });
+              } else {
+                  res.json({
+                      message: "Delete Success!",
+                      added: true
+                  });
+              }
+          })
+      }
   }

@@ -22,4 +22,8 @@ export class HttpService {
   editProduct(id, editproduct) {
     return this._http.put(`/edit/${id}`, editproduct);
   }
+
+  deleteProduct(id) {
+    return this._http.delete(`/delete/${id}`);
+  }
 }
