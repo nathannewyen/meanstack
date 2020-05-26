@@ -1,0 +1,18 @@
+<table class="table border">
+  <thead class="thead-light">
+    <tr>
+      <th>Team Name</th>
+      <th>Preferred Position</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let player of players">
+      <td> <a href="#"> {{player.name}} </a> </td>
+      <td>{{player.position}}</td>
+      <td>
+        <button class="btn btn-danger" (click)="onDelete(player._id)">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

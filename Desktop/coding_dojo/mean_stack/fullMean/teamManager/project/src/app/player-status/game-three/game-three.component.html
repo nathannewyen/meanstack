@@ -1,0 +1,26 @@
+  <div class="info border">
+    <h4>Player Status - Game 3</h4>
+    <h5 class="text-center">
+      <a [routerLink]="['/status/game/1']">Game 1</a> |
+      <a [routerLink]="['/status/game/2']">Game 2</a> |
+      <a [routerLink]="['/status/game/3']">Game 3</a>
+    </h5>
+    <table class="table table-bordered table-hover">
+      <thead class="thead-light">
+        <tr>
+          <th>Team Name</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td> <a href="#"> Test </a> </td>
+          <td>
+            <button class="btn btn-success">Playing</button>
+            <button class="btn btn-secondary">Not Playing</button>
+            <button class="btn btn-warning">Undecided</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
