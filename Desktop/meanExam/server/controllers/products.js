@@ -65,7 +65,7 @@
                   if (req.body.name) {
                       product_data.name = req.body.name;
                   }
-                  if (req.body.qty) {
+                  if (req.body.qty >= 0) {
                       product_data.qty = req.body.qty;
                   }
                   if (req.body.price) {

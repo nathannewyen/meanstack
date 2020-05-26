@@ -8,8 +8,6 @@ const ProductSchema = new mongoose.Schema({
     },
     qty: {
         type: Number,
-        required: true,
-        min: [1, "Qty must be a minimum 1"]
     },
     price: {
         type: Number,
