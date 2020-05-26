@@ -14,6 +14,10 @@ export class HttpService {
     return this._http.post("/add", newplayer);
   }
 
+  addAction(id, data) {
+    return this._http.post(`/add/action/${id}`, data);
+  }
+
   getOnePlayer(id) {
     return this._http.get(`/show/${id}`);
   }

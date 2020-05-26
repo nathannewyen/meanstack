@@ -51,6 +51,24 @@
               })
       },
 
+      addAction: (req, res) => {
+          Player.findOneAndUpdate({
+              _id: req.params.id
+          }, {
+              $set: {
+                  actions: req.body.action
+              }
+          }, {
+              new: true
+          }, function (err, data) {
+              if (err) {
+                  console.log('error setting the data', err);
+              } else {
+                  res.json(data);
+              }
+          });
+      },
+
 
       deletePlayer: (req, res) => {
           Player.remove({
@@ -68,5 +86,5 @@
                   });
               }
           })
-      }
+      },
   }

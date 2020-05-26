@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { HttpService } from "../../http.service";
-import { ActivatedRoute, Router } from "@angular/router";
+import { ActivatedRoute } from "@angular/router";
 
 @Component({
   selector: "app-game-one",
@@ -8,18 +8,8 @@ import { ActivatedRoute, Router } from "@angular/router";
   styleUrls: ["./game-one.component.scss"],
 })
 export class GameOneComponent implements OnInit {
-  playerID: string;
-  playerData: any;
   teams = [];
-
-  playing = false;
-  statusPlaying = "Playing";
-
-  notplaying = false;
-  statusNotPlaying = "Not Playing";
-
-  Undecided = false;
-  statusUndecided = "Undecided";
+  currentStatus: string;
 
   constructor(
     private _httpService: HttpService,
@@ -27,7 +17,6 @@ export class GameOneComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.playerID = this.route.snapshot.paramMap.get("id");
     this.getAllPlayers();
   }
 
@@ -38,19 +27,11 @@ export class GameOneComponent implements OnInit {
     });
   }
 
-  Playing(playerID) {
-    this.playing = !this.playing;
-    this.statusPlaying = this.playing ? "Playing" : "Playing";
-    console.log(this.playerID);
-  }
-
-  notPlaying() {
-    this.notplaying = !this.notplaying;
-    this.statusNotPlaying = this.notplaying ? "Not Playing" : "Not Playing";
-  }
-
-  undecided() {
-    this.Undecided = !this.Undecided;
-    this.statusNotPlaying = this.Undecided ? "Undecided" : "Undecided";
+  status(id, event) {
+    this.currentStatus = event.path[0].innerText;
+    const ob = this._httpService.addAction(id, { action: this.currentStatus });
+    ob.subscribe((data) => {
+      this.getAllPlayers();
+    });
   }
 }

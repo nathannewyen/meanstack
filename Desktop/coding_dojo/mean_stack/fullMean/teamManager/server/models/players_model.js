@@ -8,6 +8,7 @@
           minlength: [2, "Name must be a minimum of 2 characters!"]
       },
       position: String,
+      actions: String,
   })
 
 

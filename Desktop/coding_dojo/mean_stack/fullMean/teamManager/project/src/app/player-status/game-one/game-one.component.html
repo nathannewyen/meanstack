@@ -16,14 +16,12 @@
         <tr *ngFor="let team of teams ">
           <td> {{team.name}} </td>
           <td>
-            <button class="btn shadow" (click)="Playing(team._id)" [ngClass]="{'btn-success' : playing, '': !playing}">
-              Playing
-            </button>
-            <button class="btn shadow" (click)="notPlaying()"
-              [ngClass]="{'btn-danger' : notplaying, '': !notplaying}">Not
-              Playing</button>
-            <button class="btn shadow" (click)="undecided()"
-              [ngClass]="{'btn-warning' : Undecided, '': !Undecided}">Undecided</button>
+            <button [ngClass]="team.actions === 'Playing' ? 'btn-success shadow' : ''"
+              (click)="status(team._id, $event)" class="btn">Playing</button>
+            <button [ngClass]="{'btn-danger shadow' : team.actions === 'Not Playing'}"
+              (click)="status(team._id, $event)" class="btn">Not Playing</button>
+            <button [ngClass]="{'btn-warning shadow' : team.actions === 'Undecided'}" (click)="status(team._id, $event)"
+              class="btn">Undecided</button>
           </td>
         </tr>
       </tbody>

@@ -8,6 +8,8 @@ module.exports = (app) => {
 
     app.post("/add", player.createPlayer)
 
+    app.post("/add/action/:id", player.addAction)
+
     app.delete("/delete/:id", player.deletePlayer)
 
     app.all("*", (req, res, next) => {
